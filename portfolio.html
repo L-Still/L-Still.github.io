@@ -6,17 +6,13 @@
   <title>Leslee Still's Portfolio - Projects</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <style>
     /* General Reset */
     body, h1, p {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
     }
 
     /* Background Color */
@@ -28,9 +24,13 @@
     }
 
     /* Sticky Navigation Bar */
+    html {
+      scroll-behavior: smooth;
+    }
+
     .navbar {
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      justify-content: space-between;
+      justify-content: center; /* Center the navbar content */
     }
 
     .navbar-nav .nav-link {
@@ -45,7 +45,7 @@
     }
 
     .navbar-brand {
-      display: none;
+      display: none; /* Removed "Leslee Still's Portfolio" from the top */
     }
 
     /* Projects Section */
@@ -53,7 +53,6 @@
       padding: 60px 20px;
       font-family: Arial, sans-serif;
       color: #fff;
-      flex: 1;
     }
 
     .projects-section h1 {
@@ -66,26 +65,6 @@
       margin-bottom: 30px;
     }
 
-    /* NEW: equal-height cards */
-    .row.align-items-stretch .card {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .row.align-items-stretch .card-img-top {
-      height: 250px;
-      object-fit: cover;
-    }
-    .row.align-items-stretch .card-body {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .row.align-items-stretch .card-body .btn {
-      margin-top: auto;
-    }
-
     .card-body {
       display: flex;
       flex-direction: column;
@@ -95,11 +74,33 @@
     .card-title {
       font-size: 1.4rem;
       margin-bottom: 20px;
-      color: #333; /* ensure visible on white */
+      color: #333; /* NEW: dark text for visibility */
     }
 
     .btn {
       margin: 5px 0;
+    }
+
+    /* NEW: Force all cards same height & image sizing */
+    .row.align-items-stretch .card {
+      height: 100%;             /* fill its column */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row.align-items-stretch .card-img-top {
+      height: 250px;            /* uniform image height */
+      object-fit: cover;        /* crop/scale without distortion */
+    }
+
+    .row.align-items-stretch .card-body {
+      flex: 1 1 auto;           /* body grows to fill card */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row.align-items-stretch .card-body .btn {
+      margin-top: auto;         /* push buttons to bottom */
     }
   </style>
 </head>
@@ -113,21 +114,12 @@
               aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <!-- Home -->
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <!-- Portfolio (this page) -->
-          <li class="nav-item">
-            <a class="nav-link" href="portfolio.html">Portfolio</a>
-          </li>
-          <!-- NEW: Contact Info -->
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#contact">Contact Info</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <!-- NEW: Contact Info link -->
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Info</a></li>
         </ul>
       </div>
     </div>
@@ -137,6 +129,7 @@
   <section id="projects" class="projects-section">
     <h1>My Projects</h1>
     <div class="container">
+      <!-- NEW: added align-items-stretch to make cards equal height -->
       <div class="row align-items-stretch">
         <!-- Project 1 -->
         <div class="col-md-4">
@@ -145,6 +138,7 @@
                  class="card-img-top"
                  alt="Customer Churn Prediction">
             <div class="card-body">
+              <!-- title already present -->
               <h5 class="card-title">Churn Prediction &amp; Customer Segmentation</h5>
               <a href="https://github.com/L-Still/Churn-Prediction-and-Customer-Segmentation-with-XGBoost-for-Targeted-Retention"
                  class="btn btn-secondary" target="_blank">Source Code</a>
@@ -175,7 +169,7 @@
         <!-- Project 3 -->
         <div class="col-md-4">
           <div class="card">
-            <img src="images/projects/ML.jpg"
+            <img src="images/projects/segmentation.jpg"
                  class="card-img-top"
                  alt="Customer Segmentation">
             <div class="card-body">
@@ -189,11 +183,28 @@
             </div>
           </div>
         </div>
-        <!-- …add new project columns here as needed… -->
-      </div>
-    </div>
+        <!-- Project 4 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/projects/housing price pred.jpg"
+                 class="card-img-top"
+                 alt="Housing Price Prediction">
+            <div class="card-body">
+              <h5 class="card-title">Capstone Project: Housing Price Prediction</h5>
+              <a href="https://github.com/L-Still/DAT490-Capstone-Project-Housing-Price-Prediction"
+                 class="btn btn-secondary" target="_blank">Source Code</a>
+              <a href="https://nbviewer.org/github/L-Still/DAT490-Capstone-Project-Housing-Price-Prediction/blob/main/DAT490_Results.ipynb"
+                 class="btn btn-success" target="_blank">
+                <i class="fas fa-book-open"></i> View This Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
