@@ -78,6 +78,30 @@
     .btn {
       margin: 5px 0;
     }
+    /* ───────────────────────────────────────────────────
+   Standardize project cards & images
+───────────────────────────────────────────────────── */
+.row.align-items-stretch .card {
+  height: 100%;               /* fill the column */
+  display: flex;
+  flex-direction: column;
+}
+
+.row.align-items-stretch .card-img-top {
+  height: 250px;              /* pick your uniform image height */
+  object-fit: cover;          /* crop/scale to fill without distortion */
+}
+
+.row.align-items-stretch .card-body {
+  flex: 1 1 auto;             /* let body grow to fill card */
+  display: flex;
+  flex-direction: column;
+}
+
+.row.align-items-stretch .card-body .btn {
+  margin-top: auto;           /* push buttons to the bottom */
+}
+
   </style>
 </head>
 <body>
@@ -101,20 +125,21 @@
   <section id="projects" class="projects-section">
     <h1>My Projects</h1>
     <div class="container">
-      <div class="row">
+      <div class="row class="row align-item-stretch">
         <!-- Project 1 -->
         <div class="col-md-4">
-          <div class="card">
-            <img src="images/projects/churn.jpg" class="card-img-top" alt="Customer Churn Prediction">
-            <div class="card-body">
-              <h5 class="card-title">Churn Prediction and Customer Segmentation</h5>
-              <a href="https://github.com/L-Still/Churn-Prediction-and-Customer-Segmentation-with-XGBoost-for-Targeted-Retention" class="btn btn-secondary" target="_blank">Source Code</a>
-              <a href="https://nbviewer.org/github/L-Still/Churn-Prediction-and-Customer-Segmentation-with-XGBoost-for-Targeted-Retention/blob/main/Customer%20Churn%20Prediction.ipynb" target="_blank" class="btn btn-success">
-                <i class="fas fa-book-open"></i> View This Project
-              </a>
-            </div>
-          </div>
-        </div>
+  <div class="card">
+    <img src="images/projects/churn.jpg"
+         class="card-img-top"
+         alt="Customer Churn Prediction">
+    <div class="card-body">
+      <h5 class="card-title">Churn Prediction &amp; Segmentation</h5>
+      <a …>Source Code</a>
+      <a …>View This Project</a>
+    </div>
+  </div>
+</div>
+
         <!-- Project 2 -->
         <div class="col-md-4">
           <div class="card">
